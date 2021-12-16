@@ -1,9 +1,16 @@
 export class Veiculo {
 
-    constructor(modelo, ano, numeroChassi){
+    constructor(modelo, ano, numeroChassi, velocidadeMaxima){
+
+        if(this.constructor == Veiculo){
+            throw new Error("Você não pode instanciar um objeto do tipo Veiculo, pois a classe é abstrata!");
+        }
+
+
         this._modelo = modelo;
         this._ano = ano;
         this._numeroChassi = numeroChassi;
+        this._velocidadeMaxima = velocidadeMaxima;
     }
 
     get modelo(){
@@ -16,5 +23,9 @@ export class Veiculo {
 
     get numeroChassi(){
         return this._numeroChassi;
+    }
+
+    acelerar(velocidade){
+       
     }
 }
