@@ -25,7 +25,15 @@ export class Veiculo {
         return this._numeroChassi;
     }
 
+    get velocidadeMaxima(){
+        return this._velocidadeMaxima;
+    }
+
     acelerar(velocidade){
-       
+       if(this.velocidadeMaxima >= velocidade){
+           return console.log("A velocidade atual do veiculo é de " + velocidade + " km/h");
+       }else{
+           console.log("O carro não pode atingir a velocidade desejada!");
+       }
     }
 }
