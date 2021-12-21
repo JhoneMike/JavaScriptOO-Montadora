@@ -36,4 +36,20 @@ export class Veiculo {
            console.log("O carro não pode atingir a velocidade desejada!");
        }
     }
+
+    freiar(velocidadeAtual) {
+        if(velocidadeAtual > 120 && velocidadeAtual <= 300){
+            console.log("Velocidade alta, ativando o sistema de freios ABS");
+            while(velocidadeAtual >= 10 && velocidadeAtual > 0){
+                console.log(velocidadeAtual + " km/h");
+                velocidadeAtual -= 10;
+            }
+            console.log("O carro freiou com sucesso, a velocidade atual é de " + velocidadeAtual + " km/h");
+        }else if(velocidadeAtual >= 301){
+            console.log("Velocidade informada não é compativel!");
+        }else{
+            velocidadeAtual = 20;
+            return console.log("Carro freiou com sucesso e em segurança!");
+        }        
+    }
 }
