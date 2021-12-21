@@ -8,7 +8,4 @@ export class Carro extends Veiculo{
         this._cor = cor;
         this._velocidadeMaxima = velocidadeMaxima;
     }
-    
-    
-
 }

@@ -10,5 +10,5 @@ const motoHornet = new Motocicleta("Hornet", 2017, '00044455660', 260, 'Preto', 
 
 
 console.log(carroGolf);
-carroGolf.acelerar(290);
+carroGolf.acelerar(390);
 console.log(motoHornet);
