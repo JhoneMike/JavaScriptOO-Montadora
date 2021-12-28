@@ -11,6 +11,7 @@ export class Veiculo {
         this._ano = ano;
         this._numeroChassi = numeroChassi;
         this._velocidadeMaxima = velocidadeMaxima;
+        this._velocidadeAtualDoVeiculo = 0;
     }
 
     get modelo(){
@@ -29,26 +30,36 @@ export class Veiculo {
         return this._velocidadeMaxima;
     }
 
+    velocidadeAtualDoVeiculo(velocidade){
+        return this._velocidadeAtualDoVeiculo = velocidade;
+    }
+
+    get velocidadeDoVeiculo(){
+        return this._velocidadeAtualDoVeiculo;
+    }
+
     acelerar(velocidade){
        if(this.velocidadeMaxima >= velocidade){
+           this.velocidadeAtualDoVeiculo(velocidade);
+           console.log("Acelerando, VRUUUUUM");
            return console.log("A velocidade atual do veiculo é de " + velocidade + " km/h");
        }else{
            console.log("O carro não pode atingir a velocidade desejada!");
        }
     }
 
-    freiar(velocidadeAtual) {
-        if(velocidadeAtual > 120 && velocidadeAtual <= 300){
+    freiar() {
+        if(this.velocidadeDoVeiculo > 120 && this.velocidadeDoVeiculo <= 300){
             console.log("Velocidade alta, ativando o sistema de freios ABS");
-            while(velocidadeAtual >= 10 && velocidadeAtual > 0){
-                console.log(velocidadeAtual + " km/h");
-                velocidadeAtual -= 10;
+            while(this.velocidadeDoVeiculo >= 15 && this.velocidadeDoVeiculo > 0){
+                console.log(this.velocidadeDoVeiculo + " km/h");
+                this.velocidadeAtualDoVeiculo(this.velocidadeDoVeiculo - 10);
             }
-            console.log("O carro freiou com sucesso, a velocidade atual é de " + velocidadeAtual + " km/h");
-        }else if(velocidadeAtual >= 301){
+            console.log("O carro freiou com sucesso, a velocidade atual é de " + this.velocidadeDoVeiculo + " km/h");
+        }else if(this.velocidadeDoVeiculo >= 301){
             console.log("Velocidade informada não é compativel!");
         }else{
-            velocidadeAtual = 20;
+            this.velocidadeDoVeiculo = 20;
             return console.log("Carro freiou com sucesso e em segurança!");
         }        
     }
