@@ -41,7 +41,7 @@ export class Veiculo {
     acelerar(velocidade){
        if(this.velocidadeMaxima >= velocidade){
            this.velocidadeAtualDoVeiculo(velocidade);
-           console.log("Acelerando, VRUUUUUM");
+           console.log("Acelerando");
            return console.log("A velocidade atual do veiculo é de " + velocidade + " km/h");
        }else{
            console.log("O carro não pode atingir a velocidade desejada!");
