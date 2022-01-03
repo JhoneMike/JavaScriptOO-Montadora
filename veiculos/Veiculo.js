@@ -39,14 +39,20 @@ export class Veiculo {
     }
 
     acelerar(velocidade){
-       if(this.velocidadeMaxima >= velocidade){
-           this.velocidadeAtualDoVeiculo(velocidade);
-           console.log("Acelerando");
-           return console.log("A velocidade atual do veiculo é de " + velocidade + " km/h");
-       }else{
-           console.log("O carro não pode atingir a velocidade desejada!");
-       }
-    }
+        if(this.velocidadeMaxima >= velocidade){
+            let velocidadeDefinida = velocidade;
+            velocidade = 0;
+            console.log("Acelerando...");
+            while(this.velocidadeDoVeiculo < velocidadeDefinida){
+                this.velocidadeAtualDoVeiculo(velocidade);
+                velocidade += 1;
+                console.log(this.velocidadeDoVeiculo + " km/h");
+            }
+            return console.log("A velocidade atual do veiculo é de " + this.velocidadeDoVeiculo + " km/h");
+        }else{
+            console.log("O carro não pode atingir a velocidade desejada!");
+        }
+     }
 
     freiar() {
         if(this.velocidadeDoVeiculo > 120 && this.velocidadeDoVeiculo <= 300){
